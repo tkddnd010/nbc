@@ -1,0 +1,83 @@
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: beige;
+}
+
+header{
+    width: 100%;
+    height: 170px;
+    background-color: aquamarine;
+    overflow: hidden;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.mainBanner{
+    width: 50%;
+    text-align: center;
+    margin-left: 25%;
+    line-height: 170px;
+    font-size: 35px;
+    float: left;
+}
+
+.mainSearch{
+    width: 400px;
+    height: 50px;
+    position: absolute;
+    top:63.89px;
+    right:40px;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.mainSearch input{
+    width: 230px;
+    height: 35px;
+    letter-spacing: 1px;
+    padding: 0 7px;
+    box-sizing: border-box;
+}
+
+.mainSearch button{
+    width: 50px;
+    height: 35px;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+.mycard-list{
+    width: 1400px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: row;
+}
+
+#cards{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.item{
+    width: 25%;
+    height: 800px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 25px 35px;
+    background-color: brown;
+}
+
+.item img{
+    width: 100%;
+}
+
+.item p{
+    padding: 7px;
+}
