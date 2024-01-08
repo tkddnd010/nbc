@@ -18,7 +18,7 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
         let temp_html = `
         <div class="item" onclick="alert('영화 id : ${id}')">
                 <img src="https://image.tmdb.org/t/p/w500${poster}" alt="">
-                <h3>영화 제목 : ${title}</h3>
+                <h3 class="item-title">${title}</h3>
                 <p>영화 설명 : ${view}</p>
                 <p>평점 : ${vote}</p>
         </div>`;
@@ -27,20 +27,33 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
 
 
 
-
     })
     ))
     .catch(err => console.error(err));
 
 
-fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1')
-    .then(response => response.json())
-    .then(response => {
-        let searchs = response.results;
-        $('#search-btn').onclick(()=>{
-            for(let i of searchs){
-                console.log(i.title);
-            }
-        })
-        
-    })
+const handleSearch = searchKey => {
+    let items = document.querySelectorAll(".item");
+
+    items.forEach((item) => {
+        const title = item.querySelector(".item-title").textContent.toLowerCase();
+        const searchValue = searchKey.toLowerCase();
+
+        if (title.includes(searchValue)) {
+            item.style.display = "block";
+        } else {
+            item.style.display = "none";
+        }
+    });
+}
+
+
+let searchValue = document.querySelector("#search-input");
+let form = document.querySelector(".search");
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    handleSearch(searchValue.value);
+});
+
+
+
